@@ -11,7 +11,7 @@ sed -i "s/KERNEL_PATCHVER:=5.15/KERNEL_PATCHVER:=5.10/" target/linux/ipq40xx/Mak
 sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.10/g" target/linux/ipq40xx/Makefile
 
 #sh -c "curl -sfL https://patch-diff.githubusercontent.com/raw/openwrt/openwrt/pull/10778.patch | git apply -p1"
-
+svn co https://github.com/jerrykuku/luci-app-vssr/trunk package/luci-app-vssr
 sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192.168.1/192.168.8.1/" package/feeds/kiddin9/base-files/files/bin/config_generate
 # 取消bootstrap为默认主题
@@ -22,3 +22,5 @@ rm -rf feeds/luci/themes/luci-theme-argon && git clone -b 18.06 https://github.c
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
 #7.修改主机名
 sed -i "s/hostname='OpenWrt'/hostname='asus_rt-acrh17'/g" package/base-files/files/bin/config_generate
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
