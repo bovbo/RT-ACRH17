@@ -1,5 +1,5 @@
 --- a/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-rt-ac42u.dts
-+++ b/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-rt-ac42u.dts
++++ b/target/linux/ipq40xx/files/arch/arm/boot/dts/qcom-ipq4019-rt-acrh17.dts
 @@ -225,38 +225,13 @@
  			#size-cells = <1>;
  
