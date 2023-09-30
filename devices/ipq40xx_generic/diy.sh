@@ -14,3 +14,11 @@ sed -i "s/KERNEL_TESTING_PATCHVER:=*.*/KERNEL_TESTING_PATCHVER:=5.10/g" target/l
 
 sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
 sed -i "s/192.168.1/192.168.8.1/" package/feeds/kiddin9/base-files/files/bin/config_generate
+# 取消bootstrap为默认主题
+sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
+#5.更换lede源码中自带argon主题
+rm -rf feeds/luci/themes/luci-theme-argon && git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git feeds/luci/themes/luci-theme-argon
+#2. web登陆密码从password修改为空
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' openwrt/package/lean/default-settings/files/zzz-default-settings
+#7.修改主机名
+sed -i "s/hostname='OpenWrt'/hostname='asus_rt-acrh17'/g" package/base-files/files/bin/config_generate
